@@ -8,8 +8,10 @@ const client = new Discord.Client(
 		  GatewayIntentBits.MessageContent,
     ] })
 
-client.once('ready', () => {
-  console.log("ready")
+client.on('message',  (message) => {
+    if (message.content === '!ping'){
+      message.channel.send('Pong')
+    }
 })
 
 client.login(process.env.DISCRD_TOKEN)
